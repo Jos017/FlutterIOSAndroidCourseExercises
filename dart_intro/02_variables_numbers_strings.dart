@@ -24,7 +24,7 @@ void main () {
   
   ////////// Numbers //////////
   
-  /* You can also declare variables as numbers using int,  */
+  /* You can also declare variables as numbers using int, double */
   int age = 28; // only negative and positive integers
   double height = 1.78; // float numbers
   
