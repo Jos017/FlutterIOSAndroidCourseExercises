@@ -9,6 +9,10 @@ void main () {
   
   /* Boolean variables can have only two values: true or false */
   bool isActive = true;
+
+  if (isNull = false) {
+    print('isNull is $isNull');
+  }
   
   if (isActive == false) {
     print('isActive is null');
