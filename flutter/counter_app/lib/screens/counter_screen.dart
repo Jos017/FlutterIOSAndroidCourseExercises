@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:counter_app/widgets/custom_floating_actions.dart';
+
 class CounterScreen extends StatefulWidget {
   const CounterScreen({super.key});
 
@@ -9,6 +11,21 @@ class CounterScreen extends StatefulWidget {
 
 class _CounterScreenState extends State<CounterScreen> {
   int counter = 0;
+
+  void increase() {
+    counter += 1;
+    setState(() {});
+  }
+
+  void decrease() {
+    counter -= 1;
+    setState(() {});
+  }
+
+  void reset() {
+    counter = 0;
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,31 +47,10 @@ class _CounterScreenState extends State<CounterScreen> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          FloatingActionButton(
-            onPressed: () {
-              counter -= 1;
-              setState(() {});
-            },
-            child: const Icon(Icons.remove),
-          ),
-          FloatingActionButton(
-            onPressed: () {
-              counter = 0;
-              setState(() {});
-            },
-            child: const Icon(Icons.restart_alt_rounded),
-          ),
-          FloatingActionButton(
-            onPressed: () {
-              counter += 1;
-              setState(() {});
-            },
-            child: const Icon(Icons.add),
-          )
-        ],
+      floatingActionButton: CustomFloatingActions(
+        increaseFn: increase,
+        decreaseFn: decrease,
+        resetFn: reset,
       ),
     );
   }
